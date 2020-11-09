@@ -1,100 +1,79 @@
     1  ls
-    2  git clone https://github.com/amitvashisttech/kubernetes-Acc-2020-Nov-09.git
-    3  ls
-    4  cd kubernetes-Acc-2020-Nov-09/
-    5  ls
-    6  cd 01-Docker/
-    7  ls
-    8  cd 00-Install-Docker/
+    2  docker ps 
+    3  curl 172.17.0.4
+    4  curl 172.17.0.4/welcome.html
+    5  docker ps 
+    6  docker kill 271910c5d465
+    7  docker ps 
+    8  docker ps -a
     9  ls
-   10  ./install-docker.sh 
+   10  docker run -it --name volume-test-01 ubuntu:16.04
    11  ls
-   12  cd 
-   13  ls
-   14  docker run -it ubuntu:16.04
-   15  ls
-   16  docker ps 
-   17  docker inspect afded54dcc03
-   18  curl 172.17.0.2
-   19  docker attach afded54dcc03
-   20  curl 172.17.0.2
-   21  curl 172.17.0.2/welcome.html
-   22  ls
-   23  cd kubernetes-Acc-2020-Nov-09/
-   24  ls
-   25  mkdir 02-Dockerfile
-   26  ls
-   27  cd 02-Dockerfile/
-   28  ls
-   29  vim Dockerfile
-   30  ls
-   31  vim hello.html
-   32  ls
-   33  docker images 
-   34  docker build -t my-ubuntu-web-server:v1 . 
-   35  cat Dockerfile 
-   36  docker images 
-   37  docker run -d my-ubuntu-web-server:v1 
-   38  docker ps 
-   39  cat Dockerfile 
-   40  docker ps 
-   41  cat Dockerfile 
-   42  docker ps 
-   43  docker inspect ce5db68fcf98 | more 
-   44  ls
-   45  cat Dockerfile 
-   46  docker images 
-   47  docker run  my-ubuntu-web-server:v1 
-   48  docker run  -d --name test-01 my-ubuntu-web-server:v1 
-   49  docker run  -d --name test-02 my-ubuntu-web-server:v1 
-   50  docker run  -d --name test-03 my-ubuntu-web-server:v1 
-   51  docker run  -d --name test-04 my-ubuntu-web-server:v1 
-   52  docker ps 
-   53  docker inspect test-01
-   54  curl 172.17.0.4/welcome.html
-   55  curl 172.17.0.5/welcome.html
-   56  curl 172.17.0.6/welcome.html
-   57  curl 172.17.0.7/welcome.html
-   58  curl 172.17.0.8/welcome.html
-   59  ls
-   60  docker ps 
-   61  docker ps -q
-   62  docker kill $(docker ps -q)
-   63  docker ps 
-   64  docker ps -a
-   65  docker rm $(docker ps -aq)
-   66  docker ps -a 
-   67  docker run  -d --name test-01 my-ubuntu-web-server:v1 
-   68  docker ps 
-   69  docker inspect ddbe1e877b52
-   70  curl 172.17.0.2
-   71  ip addr 
+   12  docker ps 
+   13  docker stop 75077ac17b33
+   14  docker ps 
+   15  docker kill $(docker ps -q)
+   16  ls
+   17  docker ps 
+   18  docker start 75077ac17b33
+   19  docker attach  75077ac17b33
+   20  docker rm 75077ac17b33
+   21  docker start 75077ac17b33
+   22  docker volume ls 
+   23  docker volume create my-vol
+   24  docker volume ls 
+   25  docker volume inspect my-vol
+   26  cd /var/lib/docker/volumes/my-vol/_data
+   27  ls
+   28  cd 
+   29  ls
+   30  docker imags 
+   31  docker images
+   32  docker run -d --name devtest --mount source=my-vol,target=/var/www/html/amit -P my-ubuntu-web-server:v2
+   33  docker ps 
+   34  docker run -d --name devtest02 --mount source=my-vol,target=/var/www/html/amit -P my-ubuntu-web-server:v2
+   35  docker ps 
+   36  docker inspect 20574d9deca8
+   37  ls
+   38  cd /var/lib/docker/volumes/my-vol/_data
+   39  ls
+   40  vim 
+   41  ls
+   42  cp -rf /var/log/syslog . 
+   43  ls
+   44  vim hello.html
+   45  ls
+   46  ll 
+   47  chmod 755 syslog
+   48  cd 
+   49  ls
+   50  docker ps 
+   51  docker rm $(docker ps -aq)
+   52  docker kill $(docker ps -aq)
+   53  docker rm $(docker ps -aq)
+   54  ls
+   55  cd - 
+   56  ls
+   57  cd 
+   58  ls
+   59  docker volume ls 
+   60  docker run -d --name devtest02 --mount source=my-vol,target=/var/www/html/accenture -P my-ubuntu-web-server:v2
+   61  docker run -d --name devtest01 --mount source=my-vol,target=/var/www/html/test01 -P my-ubuntu-web-server:v2
+   62  docker ps 
+   63  pwd
+   64  ls
+   65  cd kubernetes-Acc-2020-Nov-09/
+   66  ls
+   67  pwd
+   68  ls
+   69  pwd
+   70  docker run --name alpha -it -v /root/kubernetes-Acc-2020-Nov-09:/amit:ro ubuntu:16.04
+   71  docker run --name beta -it -v /root/kubernetes-Acc-2020-Nov-09:/amit ubuntu:16.04
    72  ls
-   73  netstat -tulnp
-   74  docker run  -d --name test-02 -p 80:80 my-ubuntu-web-server:v1 
-   75  docker run  -d --name test-03 -p 32009:80 my-ubuntu-web-server:v1 
-   76  docker ps 
-   77  netstat -tulnp
+   73  ll
+   74  date 
+   75  cat Day1_History.txt 
+   76  ls
+   77  history >> Day1_History.txt 
    78  ls
-   79  vim Dockerfile 
-   80  ls
-   81  vim hello.html 
-   82  ls
-   83  docker build -t my-ubuntu-web-server:v2 . 
-   84  ls
-   85  docker imags 
-   86  docker images
-   87  docker run  -d --name test-04  my-ubuntu-web-server:v1 
-   88  docker ps 
-   89  docker run  -d --name test-05  my-ubuntu-web-server:v2 
-   90  docker ps 
-   91  docker run  -d --name test-06 -P my-ubuntu-web-server:v2 
-   92  docker ps 
-   93  ls
-   94  ip addr 
-   95  docker network ls 
-   96  docker network inspect e26e1b21e022
-   97  ls
-   98  cd ..
-   99  ls
-  100  history > Day1_History.txt 
+   79  history > Day1_History.txt 
