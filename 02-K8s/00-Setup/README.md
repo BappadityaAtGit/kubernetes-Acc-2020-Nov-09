@@ -8,13 +8,13 @@
 ## First clone this repository on your windows machine.
 
 ```
-git clone https://github.com/amitvashisttech/k8s-docker-vmware-08-June-2020.git
+git clone https://github.com/amitvashisttech/kubernetes-Acc-2020-Nov-09.git
 ``` 
 
 ## Now provision three virtual machines with following commands:
 
 ```
-cd k8s-docker-vmware-08-June-2020/02-K8s/
+cd kubernetes-Acc-2020-Nov-09/02-K8s/
 vagrant.exe up
 
 
@@ -36,9 +36,9 @@ Note :
 ```
 vagrant.exe ssh master
 sudo su - 
-git clone https://github.com/amitvashisttech/k8s-docker-vmware-08-June-2020.git
-cd k8s-docker-vmware-08-June-2020/02-K8s/01-Setup/
-sh install-kubernetes.sh
+git clone https://github.com/amitvashisttech/kubernetes-Acc-2020-Nov-09.git
+cd kubernetes-Acc-2020-Nov-09/02-K8s/00-Setup/
+sh install-k8s-master-node.sh
 
 ---
 Your Kubernetes master has initialized successfully!
@@ -76,9 +76,9 @@ master    Ready    master   53m     v1.13.5
 ```
 vagrant.exe ssh woker1
 sudo su - 
-git clone https://github.com/amitvashisttech/k8s-docker-vmware-08-June-2020.git
-cd k8s-docker-vmware-08-June-2020/02-K8s/01-Setup
-sh install-node.sh
+git clone https://github.com/amitvashisttech/kubernetes-Acc-2020-Nov-09.git
+cd kubernetes-Acc-2020-Nov-09/02-K8s/00-Setup/
+sh install-k8s-worker-node.sh
 ```
 
 ## Now apply the joining token on both the workers
