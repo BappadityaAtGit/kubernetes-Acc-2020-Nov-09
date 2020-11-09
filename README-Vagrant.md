@@ -26,6 +26,8 @@ Bringing machine 'worker2' up with 'virtualbox' provider...
 Step 5: Check VM Status:
 ```
 $ vagrant.exe status
+```
+```
 Current machine states:
 master running (virtualbox)
 worker1 running (virtualbox)
@@ -36,6 +38,8 @@ This environment represents multiple VMs. The VMs are all listed above with thei
 Step 6: Login to VM:
 ```
 $ vagrant.exe ssh master
+```
+```
 Welcome to Ubuntu 16.04.6 LTS (GNU/Linux 4.4.0-170-generic x86_64)
 * Documentation: https://help.ubuntu.com
 * Management: https://landscape.canonical.com
@@ -53,6 +57,8 @@ $ vagrant.exe halt master
 ```
 ```
 $ vagrant.exe status
+```
+```
 Current machine states:
 master poweroff (virtualbox)
 worker1 poweroff (virtualbox)
