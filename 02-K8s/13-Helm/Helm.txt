@@ -1,0 +1,399 @@
+    1  ls
+    2  cd kubernetes-Acc-2020-Nov-09/
+    3  ls
+    4  git config --list 
+    5  exit
+    6  ls
+    7  docker images 
+    8  kubectl get ns 
+    9  kubectl get ns -n default 
+   10  kubectl get pods  -n default 
+   11  kubectl get pods  -n kube-system
+   12  kubectl get pods  --all-namespaces
+   13  kubectl get pods  -n kube-system -o wide 
+   14  ls
+   15  cd kubernetes-Acc-2020-Nov-09/
+   16  ls
+   17  cd 02-K8s/
+   18  ls
+   19  mkdir 03-Replication-Cantroller
+   20  ls
+   21  cd 03-Replication-Cantroller/
+   22  ls
+   23  vim helloworld-replication-cantoller.yaml
+   24  ls
+   25  kubectl create -f helloworld-replication-cantoller.yaml 
+   26  kubectl get pods 
+   27  kubectl get pods -o wide 
+   28  cat helloworld-replication-cantoller.yaml 
+   29  ls
+   30  vim nginx-rc.yaml
+   31  kubectl create -f nginx-rc.yaml 
+   32  kubectl get pods 
+   33  kubectl describe pod my-nginx-s7bwp
+   34  kubectl get pods 
+   35  kubectl get rc 
+   36  kubectl scale=5 rc helloworld-controller
+   37  kubectl scale --replicas=5 rc helloworld-controller
+   38  kubectl get rc 
+   39  kubectl get pods 
+   40  kubectl scale --replicas=15 rc helloworld-controller
+   41  kubectl get rc 
+   42  kubectl get pods 
+   43  kubectl get rc 
+   44  kubectl get pods 
+   45  kubectl scale --replicas=1 rc helloworld-controller
+   46  kubectl get pods 
+   47  kubectl get rc 
+   48  kubectl delete rc my-nginx
+   49  kubectl get rc 
+   50  kubectl get pods 
+   51  kubectl get rc 
+   52  kubectl delete pod helloworld-controller-r2fkz
+   53  kubectl get rc 
+   54  kubectl get pods 
+   55  kubectl delete pod hello-k8s helloworld-controller-zcrwc
+   56  kubectl get pods 
+   57  ls
+   58  cat helloworld-replication-cantoller.yaml 
+   59  kubectl get rc 
+   60  kubectl apply -f helloworld-replication-cantoller.yaml 
+   61  kubectl get rc 
+   62  ls
+   63  kubectl  get pods 
+   64  kubectl delete pod helloworld-controller-mvjns helloworld-controller-whx7n
+   65  kubectl  get pods 
+   66  kubectl  get rc,pods
+   67  kubectl delete pod pod/helloworld-controller-pp9rz pod/helloworld-controller-zt7v9
+   68  kubectl delete pod helloworld-controller-pp9rz helloworld-controller-zt7v9
+   69  kubectl  get rc,pods
+   70  kubectl delete -f helloworld-replication-cantoller.yaml 
+   71  kubectl  get rc,pods
+   72  cd ..
+   73  l
+   74  history 
+   75  ls
+   76  vim 03-Replication-Cantroller/README.md
+   77  history > 03-Replication-Cantroller/README.md
+   78  vim 03-Replication-Cantroller/README.md
+   79  ls
+   80  cd ../../
+   81  ls
+   82  cd kubernetes-Acc-2020-Nov-09/
+   83  ls
+   84  cat /root/.kube/config 
+   85  watch -n .5 kubectl get pods 
+   86  ls
+   87  curl http://172.31.0.101:31001/
+   88  while true ; do curl http://172.31.0.101:31001/; done 
+   89  ls
+   90  cd 02-K8s/
+   91  ls
+   92  mkdir 09-WordPress
+   93  ls
+   94  cd 09-WordPress/
+   95  ls
+   96  vim wordpress-deployment.yml
+   97  vim wordpress-secrets.yaml
+   98  ls
+   99  vim wordpress-service.yaml
+  100  ls
+  101  kubectl get svc 
+  102  kubectl delete svc  helloworld-service mywebapp
+  103  ls
+  104  vim wordpress-deployment.yml 
+  105  ls
+  106  cat wordpress-secrets.yaml 
+  107  cat wordpress-service.yaml 
+  108  ls
+  109  cd ..
+  110  ls
+  111  kubectl create -f 09-WordPress/
+  112  kubectl get pods 
+  113  kubectl describe pod wordpress-deployment-7d4896594c-pjb7r
+  114  kubectl get pods 
+  115  kubectl get svc 
+  116  kubectl get pods 
+  117  kubectl exec -it wordpress-deployment-7d4896594c-pjb7r -c mysql -- mysql -u root -p 
+  118  kubectl exec -it wordpress-deployment-7d4896594c-pjb7r -c mysql -- /bin/bash
+  119  kubectl get pods 
+  120  ls
+  121  cat 09-WordPress/wordpress-deployment.yml 
+  122  kubectl describe pods 
+  123  ls
+  124  kubectl delete -f 09-WordPress/
+  125  ls
+  126  cd 09-WordPress/
+  127  ls
+  128  history 
+  129  vim README.md
+  130  ls
+  131  cd ..
+  132  ls
+  133  cd ..
+  134  ls
+  135  kubectl get svc -n kube-system
+  136  kubectl  get pods 
+  137  kubectl get pods -o wide 
+  138  kubectl expose busybox --type nodePort
+  139  kubectl expose pod busybox --type nodePort
+  140  kubectl expose pod busybox --type NodePort
+  141  kubectl get pods 
+  142  kubectl expose pod busybox --type=NodePort
+  143  ls
+  144  cd 02-K8s/
+  145  ls
+  146  cd 10-DNS/
+  147  ls
+  148  vim busybox-headless.yaml
+  149  ls
+  150  kubectl create -f busybox-headless.yaml 
+  151  kubectl get pods 
+  152  kubectl get svc 
+  153  cd 
+  154  ls
+  155  git clone https://github.com/amitvashisttech/docker-k8s-ericsson-07Oct2020.git
+  156  ls
+  157  cd kubernetes-Acc-2020-Nov-09/
+  158  ls
+  159  cd 02-K8s/
+  160  ls
+  161  cp -rf /root/docker-k8s-ericsson-07Oct2020/02-K8s/13-Service-Discovery 11-Service-Discovery
+  162  ls
+  163  cd 11-Service-Discovery/
+  164  ls
+  165  cat secrets.yml 
+  166  ls
+  167  cat helloworld-db.yml 
+  168  ls
+  169  cat helloworld-app-service.yml 
+  170  ls
+  171  cat database.yaml 
+  172  cat secrets.yml 
+  173  ls
+  174  cat database-service.yml 
+  175  ls
+  176  cd ..
+  177  ls
+  178  kubectl create -f 11-Service-Discovery/
+  179  kubectl get pods 
+  180  kubectl get svc 
+  181  kubectl get pods 
+  182  kubectl describe pod helloworld-deployment-7c557cd984-bdf7s
+  183  kubectl get svc 
+  184  kubectl get pods 
+  185  kubectl get svc 
+  186  kubectl get pods 
+  187  kubectl exec -it database -- /bin/bash
+  188  ls
+  189  cd 11-Service-Discovery/
+  190  ls
+  191  history 
+  192  vi README.md
+  193  history 
+  194  vi README.md
+  195  ls
+  196  history > README.md
+  197  ls
+  198  vim README.md 
+  199  ls
+  200  cd 
+  201  ls
+  202  cd kubernetes-Acc-2020-Nov-09/
+  203  ls
+  204  git add . ; git commit -m "11-Service-Discovery"; git push 
+  205  ls
+  206  kubectl get pods 
+  207  kubectl get pods,deploy --all
+  208  kubectl delete pods,deploy --all
+  209  ls
+  210  cd /exports/
+  211  ls
+  212  cat hello.txt 
+  213  cd 
+  214  ls
+  215  cd kubernetes-Acc-2020-Nov-09/
+  216  ls
+  217  cd 02-K8s/
+  218  ls
+  219  mkdir 12-Volumes
+  220  cd 12-Volumes/
+  221  ls
+  222  vim nfs-pv.yaml
+  223  ls
+  224  kubectl get pv 
+  225  kubectl create -f nfs-pv.yaml 
+  226  kubectl get pv 
+  227  cat nfs-pv.yaml 
+  228  vim nfs-pvc.yaml 
+  229  kubectl get pv 
+  230  kubectl get pvc
+  231  kubectl create -f nfs-pvc.yaml 
+  232  kubectl get pvc
+  233  kubectl get pv
+  234  kubectl get pvc 
+  235  ls
+  236  vim busybox-rc-nfs.yaml
+  237  ls
+  238  ls -ltr /exports/
+  239  kubectl create -f busybox-rc-nfs.yaml
+  240  kubectl get pods 
+  241  ls -ltr /exports/
+  242  tail -f /exports/index.html 
+  243  kubectl get rc 
+  244  kubectl scale --replicas=1 rc  nfs-busybox-2
+  245  kubectl get pods 
+  246  tail -f /exports/index.html 
+  247  kubectl get pods 
+  248  tail -f /exports/index.html 
+  249  kubectl scale --replicas=5 rc  nfs-busybox-2
+  250  tail -f /exports/index.html 
+  251  > /exports/index.html 
+  252  tail -f /exports/index.html 
+  253  kubectl scale --replicas=1 rc  nfs-busybox-2
+  254  ls
+  255  vim webapp-nfs.yaml
+  256  ls
+  257  kubectl get pods 
+  258  > /exports/index.html 
+  259  kubectl create -f webapp-nfs.yaml 
+  260  kubectl  get rc 
+  261  kubectl  expose rc nfs-web --type=NodePort
+  262  kubectl  get svc 
+  263  echo "---------------------------------------------------------------" >> /exports/index.html 
+  264  kubectl scale --replicas=5 rc  nfs-busybox-2
+  265  echo "---------------------------------------------------------------" >> /exports/index.html 
+  266  kubectl get pods 
+  267  kubectl delete rc nfs-busybox-2
+  268  kubectl get pods 
+  269  ls
+  270  cd ..
+  271  ls
+  272  cd 12-Volumes/
+  273  ls
+  274  cat webapp-nfs.yaml 
+  275  ls
+  276  cd 
+  277  ls
+  278  cd kubernetes-Acc-2020-Nov-09/
+  279  ls
+  280  cd 02-K8s/
+  281  ls
+  282  mkdir 13-Helm
+  283  ls
+  284  cd 13-Helm/
+  285  ls
+  286  vim README.md
+  287  ls
+  288  cat README.md 
+  289  wget https://storage.googleapis.com/kubernetes-helm/helm-v2.11.0-linux-amd64.tar.gz
+  290  ls
+  291  tar -xzvf helm-v2.11.0-linux-amd64.tar.gz
+  292  ls
+  293  rm -rf helm-v2.11.0-linux-amd64.tar.gz 
+  294  sl
+  295  ls
+  296  mv linux-amd64/helm /usr/local/bin/helm
+  297  vim helm-rbac.yaml
+  298  kubectl get sa
+  299  kubectl describe sa
+  300  kubectl get roles
+  301  kubectl get role
+  302  kubectl get clusterrole
+  303  kubectl describe clusterrole cluster-admin
+  304  kubectl describe clusterrole view
+  305  kubectl get clusterrolebindings
+  306  kubectl describe clusterrolebindings cluster-admin
+  307  kubectl create -f helm-rbac.yaml 
+  308  kubectl get sa
+  309* kubectl ge
+  310  kubectl get clusterrolebindings
+  311  kubectl describe clusterrolebindings tiller
+  312  cd
+  313  ls
+  314  cd - 
+  315  ls
+  316  rm -rf linux-amd64/
+  317  ls
+  318  cat README.md 
+  319  helm init --service-account tiller --override spec.selector.matchLabels.'name'='tiller',spec.selector.matchLabels.'app'='helm' --output yaml | sed 's@apiVersion: extensions/v1beta1@apiVersion: apps/v1@' | kubectl apply -f -
+  320  kubectl  get pods 
+  321  kubectl  get pods,svc  
+  322  kubectl  get pods,svc  -n kube-system
+  323  helm search wordpress
+  324  helm init --client-only
+  325  helm search wordpress
+  326  helm install wordpress my-wordpress
+  327  helm install stable/wordpress my-wordpress
+  328  helm install my-wordpress stable/wordpress 
+  329  helm install my-wordpress wordpress 
+  330  helm  install --help
+  331  helm install -n my-wordpress stable/wordpress 
+  332  kubectl get svc,deploy,secrets,pod
+  333  helm remove  my-wordpress  
+  334  helm delete  my-wordpress  
+  335  ls
+  336  kubectl get pods 
+  337  ls
+  338  helm create mychart
+  339  ls
+  340  cd mychart/
+  341  ls
+  342  cat Chart.yaml 
+  343  cd charts/
+  344  ls
+  345  cd ..
+  346  ls
+  347  cd templates/
+  348  ls
+  349  cat service.yaml 
+  350  ls
+  351  cd ..
+  352  ls
+  353  vim values.yaml 
+  354  ls
+  355  cd ..
+  356  sl
+  357  ls
+  358  helm install --dry-run --debug ./mychart
+  359  ls
+  360  cd mychart/
+  361  ls
+  362  vim templates/deployment.yaml 
+  363  ls
+  364  cd ..
+  365  ls
+  366  helm install --dry-run --debug ./mychart
+  367  helm install -n example-app-helm  ./mychart
+  368  kubectl get svc 
+  369  kubectl get deploy
+  370  kubectl get pods 
+  371  kubectl describe pod example-app-helm-mychart-786b885665-ksg97
+  372  ls
+  373  helm  list 
+  374  helm  remove example-app-helm
+  375  helm delete example-app-helm
+  376  ls
+  377  vim mychart/values.yaml 
+  378  ls
+  379  helm install -n example-app-helm  ./mychart
+  380  ls
+  381  helm install -n example-app-helm  ./mychart
+  382  kubectl get pods 
+  383  helm install -n example-app-helm-2  ./mychart
+  384  kubectl get svc,deploy,pod
+  385  kubectl describe pod example-app-helm-2-mychart-54f8cdbd8-qmmkz
+  386  ls
+  387  helm remove example-app-helm-2
+  388  helm delete example-app-helm-2
+  389  ls
+  390  vim mychart/values.yaml 
+  391  ls
+  392  helm install -n example-app-helm-3  ./mychart
+  393  kubectl get svc,deploy,pod
+  394  kubectl get pods -o wide 
+  395  cd ..
+  396  ls
+  397  cd 13-Helm/
+  398  ls
+  399  history > Helm.txt
